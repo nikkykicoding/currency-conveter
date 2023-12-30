@@ -4,18 +4,197 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-<body>
-    <input type="text" id="myInput" onblur="validateInput()">
+<body class="bg-dark text-light">
 
-<script>
-  function validateInput() {
-    const inputElement = document.getElementById("myInput");
-    if (inputElement.value === "") {
-      alert("Please enter a value.");
-    }
-  }
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-primary text-primary">
+    <div class="container-fluid">
+      <b><a class="navbar-brand text-primary fs-1" href="#">Currency Conveter</a></b>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon bg-primary"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          
+          
+        </ul>
+        <form class="d-flex text-white" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+    
+  </nav>
+    
+  <div class="container">
+    <!-- <label for="currencyDropdown">Select Currency:</label>
+    <select id="currencyDropdown1"></select>
+    <label for="currencyDropdown">To:</label>
+    <select id="currencyDropdown2"></select>
+  
+    <button onclick="getSelectedCurrency()">Get Selected Currency</button>
+    <label for="amountInput">Enter Amount:</label>
+    <input type="number" id="amountInput" placeholder="Enter amount" /> -->
+
+
+    <main>
+      <div class="row row-cols- row-cols-md-  text-center" style="margin-top:140px">
+        <!-- <div class="col">
+          <div class="card mb-4 rounded-3 shadow-sm">
+            <div class="card-header py-3">
+              <h4 class="my-0 fw-normal">Free</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$0<small class="text-body-secondary fw-light">/mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>10 users included</li>
+                <li>2 GB of storage</li>
+                <li>Email support</li>
+                <li>Help center access</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+            </div>
+          </div>
+        </div> -->
+        
+        <div class="col">
+          <div class="card mb-6 rounded-3 shadow-sm">
+              <div class="card-header py-3">
+                  <div class="row align-items-center">
+                      <div class="col">
+                          <select class="form-select" id="currencyDropdown1">
+                              <!-- Add your options here -->
+                          </select>
+                      </div>
+                  </div>
+              </div>
+      
+              <h1 class="text-center mt-4">TO</h1>
+      
+              <div class="card-header py-3">
+                  <div class="row align-items-center">
+                      <div class="col">
+                          <select class="form-select" id="currencyDropdown2">
+                              <!-- Add your options here -->
+                          </select>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="card-body">
+                  <label for="amountInput">Enter Amount:</label>
+                  <input type="number" id="amountInput" placeholder="Enter amount" class="form-control mt-3 bg-info" />
+      
+                  <button type="button" onclick="getSelectedCurrency()" class="w-100 btn btn-lg btn-primary mt-3">Get started</button>
+              </div>
+      
+              <!-- Header to display converted value -->
+              <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal text-center">Converted Value: <span id="convertedValue"></span></h4>
+              </div>
+          </div>
+      </div>
+      
+        <!-- <div class="col">
+          <div class="card mb-6 rounded-3 shadow-sm border-primary">
+            <div class="card-header py-3 text-bg-primary border-primary">
+              <h4 class="my-0 fw-normal">Enterprise</h4>
+            </div>
+            <div class="card-body">
+              <h1 class="card-title pricing-card-title">$29<small class="text-body-secondary fw-light">/mo</small></h1>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>30 users included</li>
+                <li>15 GB of storage</li>
+                <li>Phone and email support</li>
+                <li>Help center access</li>
+              </ul>
+              <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
+            </div>
+          </div>
+        </div> -->
+      </div>
+  
+      
+  
+      <!-- <div class="table-responsive">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th style="width: 34%;"></th>
+              <th style="width: 22%;">Free</th>
+              <th style="width: 22%;">Pro</th>
+              <th style="width: 22%;">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Public</th>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Private</th>
+              <td></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+          </tbody>
+  
+          <tbody>
+            <tr>
+              <th scope="row" class="text-start">Permissions</th>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Sharing</th>
+              <td></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Unlimited members</th>
+              <td></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-start">Extra security</th>
+              <td></td>
+              <td></td>
+              <td><svg class="bi" width="24" height="24"><use xlink:href="#check"></use></svg></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+    </main>
+    
+
+  </div>
+
+  <footer>
+    Copyrights All right reserve
+  </footer>
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script src="script.js">
+  
 </script>
 
 </body>
 </html>
+
+
